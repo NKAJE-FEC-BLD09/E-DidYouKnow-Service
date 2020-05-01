@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/DidYouKnow', {useNewUrlParser: true, useUnifiedTopology: true})
 var db = mongoose.connection;
+var faker = require('faker')
+
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('CONNECTED :D')
@@ -16,19 +18,20 @@ db.once('open', function() {
     })
 
     var Movie = mongoose.model('Movie', didYouKnowSchema);
-
-    var newMovie = new Movie({ 
-        MovieName: 'Face/Off',
-        MovieID: 9999,
-        Trivia: 'Something',
-        Goofs: 'Something',
-        Quotes: 'Something',
-        AlternateVersions: 'Something',
-        Connections: 'Something',
-        Soundtrack: 'Something'
-    })
-
-    newMovie.save(function (err) {
-        if (err) return console.error(err);
-    });
+    for (var i = 0; i < 100; i++) {
+        var newMovie = new Movie({ 
+            MovieName: `The ${faker.lorem.words()}`,
+            MovieID: i,
+            Trivia: `Did you know that ${faker.lorem.sentence()}?`,
+            Goofs: `${faker.lorem.sentence()}`,
+            Quotes: `${faker.name.findName()}` + ': ' + `${faker.lorem.sentence()}\n` + `${faker.name.findName()}` + ': ' + `${faker.lorem.sentence()}`,
+            AlternateVersions: `${faker.lorem.sentence()}`,
+            Connections: `${faker.lorem.sentence()}`,
+            Soundtrack: `Composed by: ${faker.name.findName()}, Arranged by: ${faker.name.findName()}, Featuring: ${faker.name.findName()}`
+        })
+    
+        newMovie.save(function (err) {
+            if (err) return console.error(err);
+        });
+    }
 })

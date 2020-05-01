@@ -6,11 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "proxy": "http://localhost:3000",
   "author": "Ethan Parent",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "mongodb": "^3.5.7",
-    "mongoose": "^5.9.11"
+    "mongoose": "^5.9.11",
+    "nodemon": "^2.0.3"
   }
 }
