@@ -1,0 +1,19 @@
+{
+  "name": "e-didyouknow-service",
+  "version": "1.0.0",
+  "description": "Did You Know module of IMDB Clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NKAJE-FEC-BLD09/E-DidYouKnow-Service.git"
+  },
+  "author": "Ethan Parent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NKAJE-FEC-BLD09/E-DidYouKnow-Service/issues"
+  },
+  "homepage": "https://github.com/NKAJE-FEC-BLD09/E-DidYouKnow-Service#readme"
+}
